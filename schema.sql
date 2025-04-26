@@ -10,10 +10,10 @@ CREATE TABLE Flight (
   Actual_arrival TIME,
   Flight_Status INT, --Revisar si realmente es un entero en la tabla
   Flight_update_ts TIME,
-  Id_Plane INT,
+  Id_aircraft INT,
   Id_departure_airport INT,
   Id_arrival_airport INT,
-  FOREIGN KEY(Id_Plane) REFERENCES Plane(Id_plane),
+  FOREIGN KEY(Id_aircraft) REFERENCES Aircraft(Id_aircraft),
   FOREIGN KEY(Id_departure_airport) REFERENCES Airport(Id_airport),
   FOREIGN KEY(Id_arrival_airport) REFERENCES Airport(Id_airport)
 )
