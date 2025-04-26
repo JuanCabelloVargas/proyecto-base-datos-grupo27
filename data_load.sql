@@ -1,0 +1,3 @@
+-- En este archivo vamos a cargar los datos a las tablas,
+-- La idea es que quede separado por el orden y mantener 
+-- Que cada archivo sea modular 
