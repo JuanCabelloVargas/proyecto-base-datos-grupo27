@@ -34,3 +34,26 @@ SELECT DISTINCT
     arrival_iso_region
 FROM bookings
 WHERE arrival_airport_code IS NOT NULL;
+
+INSERT INTO Boarding_Pass (Id_passenger, Id_Segment, Seat, Boarding_Time, Precheck, Boarding_Pass_Update_Ts)
+SELECT DISTINCT
+    passenger_no,
+    booking_leg_id,
+    booking_pass_seat,
+    boarding_time,
+    precheck,
+    boarding_pass_update_ts,
+FROM bookings
+WHERE passenger_no IS NOT NULL
+  AND booking_leg_id IS NOT NULL;
+
+INSERT INTO Passenger (Id_passenger, Name, Last_Name, Passport, Age)
+SELECT DISTINCT
+    passenger_no,
+    NULL,
+    NULL,
+    NULL,
+    passenger_age,
+FROM bookings
+WHERE passenger_no IS NOT NULL;
+    
