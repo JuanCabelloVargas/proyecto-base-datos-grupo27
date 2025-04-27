@@ -46,9 +46,9 @@ CREATE TABLE Boarding_Pass (
 -- Tabla de pasajero
 CREATE TABLE Passenger (
   Id_Passenger SERIAL PRIMARY KEY,
-  Name STRING,
-  Last_Name STRING,
-  Passport STRING,
+  Name VARCHAR(50),
+  Last_Name VARCHAR(50),
+  Passport VARCHAR(50),
   Age INT
 )
   
