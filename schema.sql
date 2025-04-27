@@ -83,7 +83,6 @@ CREATE TABLE user_account (
 account_id SERIAL PRIMARY KEY 
 user_name VARCHAR (50) 
 user_lastname VARCHAR(50) 
-emaill VARCHAR (50)
 )
   
 --Tabla de Telefono
