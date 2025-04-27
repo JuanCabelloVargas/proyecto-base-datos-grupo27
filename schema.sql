@@ -63,7 +63,7 @@ CREATE TABLE loyalty_program
 CREATE TABLE frequent_flyer 
 (
   id_user INT PRIMARY KEY, 
-  id_program INT PRIMARY KEY, 
+  id_program SERIAL PRIMARY KEY, 
   FOREIGN KEY (id_user) REFERENCE user_account(account_id)
   FOREIGN KEY (id_program) REFERENCE loyalty_program(id_program)
 )
