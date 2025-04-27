@@ -50,29 +50,28 @@ CREATE TABLE Passenger (
 )
   
 --Tabla de programa de fidelización
-create table frequent_flyer_program (
-  card_num     SERIAL PRIMARY KEY, --frequent flyer
-  title        CHAR(1) NULL CHECK (title = "M" or title IS NULL),
-  frequent_flyer_level        INT     NULL,
-  award_points INT     NULL,
-  email        VARCHAR(50),
-  phone_number INT     NULL,
-  update TIME,
-  FOREING      KEY(name) REFERENCES tabla_de_usario(clave primaria ),      -- dejar asi hasta que definamos otras tablas
-  FOREING KEY (last_name) REFERENCE tabla_usuario(clave primaria )      -- ver que es frequent flyer update ts
+CREATE TABLE loyalty_program
+(
+ id_program SERIAL PRIMARY KEY
+ program_name  CHAR(1) NULL CHECK (title = "M" or title IS NULL),
+ program_level INT,
+ award_points INT NULL 
 )
-
+-- Tabla de usuario de fidelizacion
+CREATE TABLE frequent_flyer 
+(
+  id_user INT PRIMARY KEY, 
+  id_program INT PRIMARY KEY, 
+  FOREIGN KEY (id_user) REFERENCE user_account(account_id)
+  FOREIGN KEY (id_program) REFERENCE loyalty_program(id_program)
+)
 -- Tabla de reserva
 create table booking
 (
-  booking_ref SERIAL PRIMARY KEY,
-  price NUMERIC NOT NULL,
-  phone INT NOT NULL,
-  user_name VARCHAR(50),
-  update_ts TIME,
-  FOREING KEY (usuario ) REFERENCES tabla_de_usuario(clave primaria)
-
-
-
+ booking_ref INT PRIMARY KEY,
+ date DATE,
+ price NUMERIC NOT NULL,
+ booking_name varchar (50)
+ update_ts TIMESTAMP,
+ FOREIGN KEY (account_id) REFERENCES user_account(account_id)
 )
-
