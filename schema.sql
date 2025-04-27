@@ -33,20 +33,22 @@ CREATE TABLE Airport (
 
 -- Tabla de pase_abordaje
 CREATE TABLE Boarding_Pass (
-  Boarding_pass_Id SERIAL PRIMARY KEY,
-  Boarding_seat VARCHAR(50),
-  Boarding_time TIME,
-  Precheck BOOLEAN,
-  Boarding_pass_update_ts TIME,
-  FOREIGN KEY(Id_passenger) REFERENCES Passenger(Id_passenger)
-  FOREIGN KEY(Id_itinerary) REFERENCES 
+  Seat VARCHAR(5) NOT NULL,     --Si tenemos un asiento asignado, entonces viajamos y necesitamos saber el valor
+  Boarding_Time TIME NOT NULL,  --Cómo abordamos si no sabemos cuando 
+  Precheck BOOLEAN NOT NULL,    --Los valores a tomar son solo TRUE o FALSE, debe tener una valor claro
+  Boarding_Pass_Update_Ts TIMESTAMP,
+  PRIMARY KEY(Id_Passenger,Id_Segment)
+  FOREIGN KEY(Id_passenger) REFERENCES Passenger(Id_passenger),
+  FOREIGN KEY(Id_Segment) REFERENCES Segment_Fly(Id_Segment)
 )
 
 -- Tabla de pasajero
 CREATE TABLE Passenger (
-  Id_passenger SERIAL PRIMARY KEY,
-  Passenger_age INT,
-  FOREIGN KEY(Id_reserva) REFERENCES Itinerary_reserve(Id_reserve)
+  Id_Passenger SERIAL PRIMARY KEY,
+  Name VARCHAR(50),
+  Last_Name VARCHAR(50),
+  Passport VARCHAR(50),
+  Age INT
 )
   
 --Tabla de programa de fidelización
