@@ -73,7 +73,15 @@ create table booking
  booking_ref INT PRIMARY KEY,
  date DATE,
  price NUMERIC NOT NULL,
- booking_name varchar (50)
+ booking_name VARCHAR (50)
  update_ts TIMESTAMP,
  FOREIGN KEY (account_id) REFERENCES user_account(account_id)
 )
+  
+--Tabla de cuenta usuario 
+CREATE TABLE user_account (
+account_id SERIAL PRIMARY KEY 
+user_name VARCHAR (50) 
+user_lastname VARCHAR(50) 
+emaill VARCHAR (50)
+  )
