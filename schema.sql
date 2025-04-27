@@ -49,4 +49,30 @@ CREATE TABLE Passenger (
   FOREIGN KEY(Id_reserva) REFERENCES Itinerary_reserve(Id_reserve)
 )
   
+--Tabla de programa de fidelización
+create table frequent_flyer_program (
+  card_num     SERIAL PRIMARY KEY, --frequent flyer
+  title        CHAR(1) NULL CHECK (title = "M" or title IS NULL),
+  frequent_flyer_level        INT     NULL,
+  award_points INT     NULL,
+  email        VARCHAR(50),
+  phone_number INT     NULL,
+  update TIME,
+  FOREING      KEY(name) REFERENCES tabla_de_usario(clave primaria ),      -- dejar asi hasta que definamos otras tablas
+  FOREING KEY (last_name) REFERENCE tabla_usuario(clave primaria )      -- ver que es frequent flyer update ts
+)
+
+-- Tabla de reserva
+create table booking
+(
+  booking_ref SERIAL PRIMARY KEY,
+  price NUMERIC NOT NULL,
+  phone INT NOT NULL,
+  user_name VARCHAR(50),
+  update_ts TIME,
+  FOREING KEY (usuario ) REFERENCES tabla_de_usuario(clave primaria)
+
+
+
+)
 
