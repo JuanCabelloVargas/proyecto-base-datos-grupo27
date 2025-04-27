@@ -56,4 +56,73 @@ SELECT DISTINCT
     passenger_age,
 FROM bookings
 WHERE passenger_no IS NOT NULL;
+
+--Tabla Telefono
+INSERT INTO Phone( Id_Telephone, Number, Id_Account)
+SELECT DISTINCT
+    account_phone,
+    booking_phone,
+    account_login
+FROM bookings
+WHERE account_phone IS NOT NULL;
+
+
+--Tabla Aeropuerto
+INSERT INTO Aircraft (Id_Aircraft, Model, Range, Velocity, Aircraft_Class)
+SELECT DISTINCT
+    aircraft_code,
+    aircraft_model,
+    aircraft_range,
+    aircraft_velocity,
+    aircraft_class
+FROM bookings
+WHERE aircraft_code IS NOT NULL;
+
+--Tabla Segmento Vuelo
+INSERT INTO Flight_Segment (Id_Segment, Leg_Number, IS_Returning, Booking_Leg_Update_TS)
+SELECT DISTINCT
+    booking_leg_id,
+    leg_num,
+    is_returning,
+    booking_leg_update_ts
+FROM bookings
+WHERE booking_leg_id IS NOT NULL;
+
+INSERT INTO loyalty_program (id_program,program_name,program_level,award_points)
+SELECT DISTINCT
+  frequent_flyer_card_num ,
+  program_name,
+  frequen_flyer_title,
+  frequent_flyer_level,
+  frequent_flyer_award_points
+ FROM bookings 
+ where frequent_flyer_card_num IS NOT NULL;
+
+ INSERT INTO frequent_flyer (id_account,id_program)
+ SELECT DISTINCT 
+  account_login,
+  frequent_flyer_card_num
+ FROM bookings 
+ WHERE account_loging IS NOT NULL
+  AND frequent_flyer_card_num IS NOT NULL;
+
+ INSERT INTO booking (booking_ref,date,price,booking_name,update_ts,account_id)
+ SELECT DISTINCT
+  booking_ref,
+  NULL,
+  booking_price,
+  booking_name, 
+  booking_update_ts
+  account_login,
+ From bookings
+ WHERE booking_ref IS NOT NULL;
+
+INSERT INTO user_account (account_id,user_name,user_lastname)
+SELECT DISTINCT 
+account_login,
+account_first_name, 
+account_last_name
+FROM bookings
+WHERE account_login IS NOT NULL;
+
     
