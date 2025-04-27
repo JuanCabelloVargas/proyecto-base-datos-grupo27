@@ -31,3 +31,22 @@ CREATE TABLE Airport (
   Airport_code VARCHAR(5)
 )
 
+-- Tabla de pase_abordaje
+CREATE TABLE Boarding_Pass (
+  Boarding_pass_Id SERIAL PRIMARY KEY,
+  Boarding_seat VARCHAR(50),
+  Boarding_time TIME,
+  Precheck BOOLEAN,
+  Boarding_pass_update_ts TIME,
+  FOREIGN KEY(Id_passenger) REFERENCES Passenger(Id_passenger)
+  FOREIGN KEY(Id_itinerary) REFERENCES 
+)
+
+-- Tabla de pasajero
+CREATE TABLE Passenger (
+  Id_passenger SERIAL PRIMARY KEY,
+  Passenger_age INT,
+  FOREIGN KEY(Id_reserva) REFERENCES Itinerary_reserve(Id_reserve)
+)
+  
+
