@@ -84,4 +84,29 @@ account_id SERIAL PRIMARY KEY
 user_name VARCHAR (50) 
 user_lastname VARCHAR(50) 
 emaill VARCHAR (50)
-  )
+)
+  
+--Tabla de Telefono
+CREATE TABLE Phone ( 
+    Id_Telephone SERIAL PRIMARY KEY,
+    Number INT,
+    Id_Account INT,
+    FOREIGN KEY(Id_Account) REFERENCES Account(Id_Account)
+)
+
+--Tabla de Aeronave
+CREATE TABLE Aircraft (
+  Id_Aircraft SERIAL PRIMARY KEY,
+  Model VARCHAR(50),
+  Range INT,
+  Velocity INT,
+  Aircraft_Class INT
+)
+
+--Tabla del segmento de vuelo
+CREATE TABLE Flight_Segment (
+  Id_Segment SERIAL PRIMARY KEY,
+  Leg_Number INT,
+  IS_Returning BOOLEAN,  --booleano
+  Booking_Leg_Update_TS DATETIME
+)
