@@ -33,20 +33,23 @@ CREATE TABLE Airport (
 
 -- Tabla de pase_abordaje
 CREATE TABLE Boarding_Pass (
-  Boarding_pass_Id SERIAL PRIMARY KEY,
-  Boarding_seat VARCHAR(50),
-  Boarding_time TIME,
+  Id_Passenger SERIAL PRIMARY KEY,
+  Id_Segment SERIAL PRIMARY KEY,
+  Seat VARCHAR(50),
+  Boarding_Time TIME,
   Precheck BOOLEAN,
-  Boarding_pass_update_ts TIME,
-  FOREIGN KEY(Id_passenger) REFERENCES Passenger(Id_passenger)
-  FOREIGN KEY(Id_itinerary) REFERENCES 
+  Boarding_Pass_Update_Ts TIME,
+  FOREIGN KEY(Id_passenger) REFERENCES Passenger(Id_passenger),
+  FOREIGN KEY(Id_Segment) REFERENCES Segment_Fly(Id_Segment)
 )
 
 -- Tabla de pasajero
 CREATE TABLE Passenger (
-  Id_passenger SERIAL PRIMARY KEY,
-  Passenger_age INT,
-  FOREIGN KEY(Id_reserva) REFERENCES Itinerary_reserve(Id_reserve)
+  Id_Passenger SERIAL PRIMARY KEY,
+  Name STRING,
+  Last_Name STRING,
+  Passport STRING,
+  Age INT
 )
   
 
