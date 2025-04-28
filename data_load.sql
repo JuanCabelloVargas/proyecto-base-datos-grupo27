@@ -25,7 +25,7 @@ SELECT DISTINCT
     arrival_airport_code,
     arrival_airport_name,
     arrival_city,
-    Departure_ISO_country,                      
+    Departure_iso_country,                      
     arrival_airport_tz,                      
     arrival_continent,
     arrival_airport_intl,
