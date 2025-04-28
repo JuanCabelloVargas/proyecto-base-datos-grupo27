@@ -42,7 +42,7 @@ SELECT DISTINCT
     booking_pass_seat,
     boarding_time,
     precheck,
-    boarding_pass_update_ts,
+    boarding_pass_update_ts
 FROM bookings
 WHERE passenger_no IS NOT NULL
   AND booking_leg_id IS NOT NULL;
@@ -53,7 +53,7 @@ SELECT DISTINCT
     NULL,
     NULL,
     NULL,
-    passenger_age,
+    passenger_age
 FROM bookings
 WHERE passenger_no IS NOT NULL;
 
