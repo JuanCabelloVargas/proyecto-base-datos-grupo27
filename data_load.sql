@@ -20,14 +20,14 @@ SELECT DISTINCT
 FROM bookings
 WHERE flight_no IS NOT NULL;
 
-INSERT INTO Aeropuerto (Id_Aeropuerto, Nombre, Ciudad, Pais, Zona_Horaria, Tipo, Continente_Aeropuerto, Aeropuerto_Internacional, ISO_Pais, ISO_Region)
-SELECT DISTINCT
+INSERT INTO Airpot ( Id_airport,Airport_name, Airport_city, FF, Airport_timezone, FF, Airport_continent,Airport_is_Intl,  Airport_iso_coutry, Airport_continent)
+SELECT DISTINCT 
     arrival_airport_code,
     arrival_airport_name,
     arrival_city,
-    NULL,
+    NULL,                      --revisar 
     arrival_airport_tz,
-    NULL,
+    NULL,                      --revisar
     arrival_continent,
     arrival_airport_intl,
     arrival_iso_country,
