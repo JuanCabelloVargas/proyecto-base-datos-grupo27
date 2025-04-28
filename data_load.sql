@@ -4,7 +4,7 @@
 
 -- Hay que cargar la tabla del csv, lo hacemos al final
 
-INSERT INTO Flight (Id_Flight , flight_Date, cheduled_departure,  Scheduled_arrival , Actual_departure , ctual_arrival,  Id_departure_airport, Id_arrival_airport, Flight_Status, Flight_Update_TS)
+INSERT INTO Flight (Id_Flight , Flight_Date, cheduled_departure,  Scheduled_arrival , Actual_departure , Actual_arrival,  Id_departure_airport, Id_arrival_airport, Flight_Status, Flight_Update_TS)
 SELECT DISTINCT
     flight_no,
     NULL,
@@ -87,7 +87,7 @@ SELECT DISTINCT
 FROM bookings
 WHERE booking_leg_id IS NOT NULL;
 
-INSERT INTO loyalty_program (id_program,program_name,program_level,award_points)
+INSERT INTO Loyalty_program (Id_program,Program_name,Program_level,Award_points)
 SELECT DISTINCT
   frequent_flyer_card_num ,
   program_name,
@@ -97,7 +97,7 @@ SELECT DISTINCT
  FROM bookings 
  where frequent_flyer_card_num IS NOT NULL;
 
- INSERT INTO frequent_flyer (id_account,id_program)
+ INSERT INTO Frequent_flyer (Id_account,Id_program)
  SELECT DISTINCT 
   account_login,
   frequent_flyer_card_num
@@ -105,18 +105,18 @@ SELECT DISTINCT
  WHERE account_loging IS NOT NULL
   AND frequent_flyer_card_num IS NOT NULL;
 
- INSERT INTO booking (booking_ref,booking_Date,price,booking_name,update_ts,account_id)
+ INSERT INTO booking (Booking_ref,Booking_Date,Price,Booking_name,Update_ts,Account_id)
  SELECT DISTINCT
   booking_ref,
   NULL,
   booking_price,
   booking_name, 
   booking_update_ts
-  account_login,
+  account_login
  From bookings
  WHERE booking_ref IS NOT NULL;
 
-INSERT INTO user_account (account_id,user_name,user_lastname)
+INSERT INTO User_account (Account_id,User_name,User_lastname)
 SELECT DISTINCT 
 account_login,
 account_first_name, 
