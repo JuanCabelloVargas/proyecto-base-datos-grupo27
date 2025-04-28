@@ -4,7 +4,7 @@
 
 -- Hay que cargar la tabla del csv, lo hacemos al final
 
-INSERT INTO Flight (Id_Flight , Date, cheduled_departure,  Scheduled_arrival , Actual_departure , ctual_arrival,  Id_departure_airport, d_arrival_airport, Id_Aeropuerto_Destino, Flight_Status, Flight_Update_TS)
+INSERT INTO Flight (Id_Flight , Date, cheduled_departure,  Scheduled_arrival , Actual_departure , ctual_arrival,  Id_departure_airport, Id_arrival_airport, Flight_Status, Flight_Update_TS)
 SELECT DISTINCT
     flight_no,
     NULL,
