@@ -107,5 +107,5 @@ CREATE TABLE Flight_Segment (
   Id_Segment SERIAL PRIMARY KEY,
   Leg_Number INT,
   IS_Returning BOOLEAN,  --booleano
-  Booking_Leg_Update_TS DATETIME
+  Booking_Leg_Update_Ts TIMESTAMP
 )
