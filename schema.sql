@@ -53,24 +53,21 @@ CREATE TABLE Passenger (
 )
   
 --Tabla de programa de fidelización
-CREATE TABLE Loyalty_Program
-(
+CREATE TABLE Loyalty_Program (
  Id_Program SERIAL PRIMARY KEY
  Program_Name  CHAR(1) NULL CHECK (title = "M" or title IS NULL),
  Program_Level INT,
  Award_Points INT NULL 
 )
 -- Tabla de usuario de fidelizacion
-CREATE TABLE Frequent_flyer 
-(
+CREATE TABLE Frequent_flyer (
   Id_User INT PRIMARY KEY, 
   Id_Program SERIAL PRIMARY KEY, 
   FOREIGN KEY (Id_User) REFERENCE User_Account(Account_Id)
   FOREIGN KEY (Id_Program) REFERENCE Loyalty_Program(Id_Program)
 )
 -- Tabla de reserva
-create table Booking
-(
+create table Booking (
  Booking_Ref INT PRIMARY KEY,
  Booking_Date DATE,
  Price NUMERIC NOT NULL,
