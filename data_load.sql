@@ -4,6 +4,76 @@
 
 -- Hay que cargar la tabla del csv, lo hacemos al final
 
+CREATE TABLE bookings (
+    booking_ref VARCHAR(50),
+    booking_email VARCHAR(100),
+    booking_phone VARCHAR(20),
+    booking_leg_id BIGINT,
+    booking_name VARCHAR(200),
+    booking_price NUMERIC(10,2),
+    flight_no VARCHAR(20),
+    flight_status VARCHAR(50),
+    is_returning BOOLEAN,
+    leg_num INTEGER,
+    departure_airport_code VARCHAR(10),
+    departure_airport_name VARCHAR(100),
+    departure_city VARCHAR(100),
+    departure_airport_tz VARCHAR(50),
+    departure_continent VARCHAR(50),
+    departure_airport_intl BOOLEAN,
+    departure_iso_country VARCHAR(10),
+    departure_iso_region VARCHAR(20),
+    arrival_airport_code VARCHAR(10),
+    arrival_airport_name VARCHAR(100),
+    arrival_city VARCHAR(100),
+    arrival_airport_tz VARCHAR(50),
+    arrival_continent VARCHAR(50),
+    arrival_airport_intl BOOLEAN,
+    arrival_iso_country VARCHAR(10),
+    arrival_iso_region VARCHAR(20),
+    aircraft_code VARCHAR(20),
+    aircraft_model VARCHAR(100),
+    aircraft_range INTEGER,
+    aircraft_velocity INTEGER,
+    aircraft_class VARCHAR(50),
+    id_reserva VARCHAR(50),
+    id_segmento VARCHAR(50),
+    id_pasajero VARCHAR(50),
+    id_asiento VARCHAR(50),
+    id_usuario VARCHAR(50),
+    id_telefono VARCHAR(50),
+    id_cuenta VARCHAR(50),
+    id_programa VARCHAR(50),
+    nombre_usuario VARCHAR(100),
+    apellido_usuario VARCHAR(100),
+    email VARCHAR(100),
+    nombre_pasajero VARCHAR(100),
+    apellido_pasajero VARCHAR(100),
+    pasaporte VARCHAR(50),
+    edad INTEGER,
+    nombre_programa VARCHAR(100),
+    tipo_nivel VARCHAR(50),
+    award_points INTEGER,
+    numero_telefono VARCHAR(20),
+    asiento VARCHAR(10),
+    pre_check BOOLEAN,
+    flight_update_ts TIMESTAMP,
+    boarding_pass_update_ts TIMESTAMP,
+    passenger_update_ts TIMESTAMP,
+    account_update_ts TIMESTAMP,
+    frequent_flyer_update_ts TIMESTAMP,
+    phone_update_ts TIMESTAMP,
+    scheduled_departure TIMESTAMP,
+    actual_departure TIMESTAMP,
+    scheduled_arrival TIMESTAMP,
+    actual_arrival TIMESTAMP
+);
+
+COPY bookings
+FROM '/ruta/bookings_small.csv'
+DELIMITER ','
+CSV HEADER;
+
 INSERT INTO Flight (Id_Flight , Flight_Date, cheduled_Departure,  Scheduled_Arrival , Actual_Departure , Actual_Arrival,  Id_Departure_Airport, Id_Arrival_Airport, Flight_Status, Flight_Update_TS)
 SELECT DISTINCT
     flight_no,
