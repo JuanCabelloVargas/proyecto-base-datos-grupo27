@@ -65,8 +65,8 @@ CREATE TABLE Frequent_flyer
 (
   Id_User INT PRIMARY KEY, 
   Id_Program SERIAL PRIMARY KEY, 
-  FOREIGN KEY (Id_User) REFERENCE User_account(Account_Id)
-  FOREIGN KEY (Id_Program) REFERENCE Loyalty_program(Id_Program)
+  FOREIGN KEY (Id_User) REFERENCE User_Account(Account_Id)
+  FOREIGN KEY (Id_Program) REFERENCE Loyalty_Program(Id_Program)
 )
 -- Tabla de reserva
 create table Booking
