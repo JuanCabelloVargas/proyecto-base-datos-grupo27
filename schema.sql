@@ -4,32 +4,32 @@
 CREATE TABLE Flight (
   Id_Flight SERIAL PRIMARY KEY,
   flight_Date DATE,
-  Scheduled_departure TIME,
-  Scheduled_arrival TIME,
-  Actual_departure TIME,
-  Actual_arrival TIME,
+  Scheduled_Departure TIME,
+  Scheduled_Arrival TIME,
+  Actual_Departure TIME,
+  Actual_Arrival TIME,
   Flight_Status INT, --Revisar si realmente es un entero en la tabla
-  Flight_update_ts TIME,
-  Id_aircraft INT,
-  Id_departure_airport INT,
-  Id_arrival_airport INT,
-  FOREIGN KEY(Id_aircraft) REFERENCES Aircraft(Id_aircraft),
-  FOREIGN KEY(Id_departure_airport) REFERENCES Airport(Id_airport),
-  FOREIGN KEY(Id_arrival_airport) REFERENCES Airport(Id_airport)
+  Flight_Update_Ts TIME,
+  Id_Aircraft INT,
+  Id_Departure_Airport INT,
+  Id_Arrival_Airport INT,
+  FOREIGN KEY(Id_Aircraft) REFERENCES Aircraft(Id_Aircraft),
+  FOREIGN KEY(Id_Departure_Airport) REFERENCES Airport(Id_Airport),
+  FOREIGN KEY(Id_Arrival_Airport) REFERENCES Airport(Id_Airport)
 )
 
 -- Tabla de aeropuerto
 CREATE TABLE Airport (
-  Id_airport SERIAL PRIMARY KEY,
-  Airport_name VARCHAR(50),
-  Airport_city VARCHAR(50),
-  Airport_country VARCHAR (50)
-  Airport_timezone VARCHAR(50),
-  Airport_iso_region VARCHAR(50),
-  Airport_is_Intl INT,
-  Airport_continent VARCHAR(50),
-  Airport_iso_coutry VARCHAR(4),
-  Airport_code VARCHAR(5)
+  Id_Airport SERIAL PRIMARY KEY,
+  Airport_Name VARCHAR(50),
+  Airport_City VARCHAR(50),
+  Airport_Country VARCHAR (50)
+  Airport_Timezone VARCHAR(50),
+  Airport_Iso_Region VARCHAR(50),
+  Airport_Is_Intl INT,
+  Airport_Continent VARCHAR(50),
+  Airport_Iso_Coutry VARCHAR(4),
+  Airport_Code VARCHAR(5)
 )
 
 -- Tabla de pase_abordaje
@@ -39,7 +39,7 @@ CREATE TABLE Boarding_Pass (
   Precheck BOOLEAN NOT NULL,    --Los valores a tomar son solo TRUE o FALSE, debe tener una valor claro
   Boarding_Pass_Update_Ts TIMESTAMP,
   PRIMARY KEY(Id_Passenger,Id_Segment)
-  FOREIGN KEY(Id_passenger) REFERENCES Passenger(Id_passenger),
+  FOREIGN KEY(Id_Passenger) REFERENCES Passenger(Id_Passenger),
   FOREIGN KEY(Id_Segment) REFERENCES Segment_Fly(Id_Segment)
 )
 
@@ -53,34 +53,34 @@ CREATE TABLE Passenger (
 )
   
 --Tabla de programa de fidelización
-CREATE TABLE loyalty_program
+CREATE TABLE Loyalty_Program
 (
- id_program SERIAL PRIMARY KEY
- program_name  CHAR(1) NULL CHECK (title = "M" or title IS NULL),
- program_level INT,
- award_points INT NULL 
+ Id_Program SERIAL PRIMARY KEY
+ Program_Name  CHAR(1) NULL CHECK (title = "M" or title IS NULL),
+ Program_Level INT,
+ Award_Points INT NULL 
 )
 -- Tabla de usuario de fidelizacion
-CREATE TABLE frequent_flyer 
+CREATE TABLE Frequent_flyer 
 (
-  id_user INT PRIMARY KEY, 
-  id_program SERIAL PRIMARY KEY, 
-  FOREIGN KEY (id_user) REFERENCE user_account(account_id)
-  FOREIGN KEY (id_program) REFERENCE loyalty_program(id_program)
+  Id_User INT PRIMARY KEY, 
+  Id_Program SERIAL PRIMARY KEY, 
+  FOREIGN KEY (Id_User) REFERENCE User_account(Account_Id)
+  FOREIGN KEY (Id_Program) REFERENCE Loyalty_program(Id_Program)
 )
 -- Tabla de reserva
-create table booking
+create table Booking
 (
- booking_ref INT PRIMARY KEY,
- booking_date DATE,
- price NUMERIC NOT NULL,
- booking_name VARCHAR (50)
- update_ts TIMESTAMP,
- FOREIGN KEY (account_id) REFERENCES user_account(account_id)
+ Booking_Ref INT PRIMARY KEY,
+ Booking_Date DATE,
+ Price NUMERIC NOT NULL,
+ Booking_Name VARCHAR (50)
+ Update_Ts TIMESTAMP,
+ FOREIGN KEY (Account_Id) REFERENCES User_account(Account_Id)
 )
   
 --Tabla de cuenta usuario 
-CREATE TABLE user_account (
+CREATE TABLE User_Account (
 account_id SERIAL PRIMARY KEY 
 user_name VARCHAR (50) 
 user_lastname VARCHAR(50) 
