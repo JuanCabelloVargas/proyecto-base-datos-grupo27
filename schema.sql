@@ -3,7 +3,7 @@
 -- Tabla de vuelo
 CREATE TABLE Flight (
   Id_Flight SERIAL PRIMARY KEY,
-  Date DATE,
+  flight_Date DATE,
   Scheduled_departure TIME,
   Scheduled_arrival TIME,
   Actual_departure TIME,
@@ -72,7 +72,7 @@ CREATE TABLE frequent_flyer
 create table booking
 (
  booking_ref INT PRIMARY KEY,
- date DATE,
+ booking_date DATE,
  price NUMERIC NOT NULL,
  booking_name VARCHAR (50)
  update_ts TIMESTAMP,
@@ -89,7 +89,7 @@ user_lastname VARCHAR(50)
 --Tabla de Telefono
 CREATE TABLE Phone ( 
     Id_Telephone SERIAL PRIMARY KEY,
-    Number INT,
+    phone_Number INT,
     Id_Account INT,
     FOREIGN KEY(Id_Account) REFERENCES Account(Id_Account)
 )
