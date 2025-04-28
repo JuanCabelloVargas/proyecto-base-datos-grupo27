@@ -23,6 +23,7 @@ CREATE TABLE Airport (
   Id_airport SERIAL PRIMARY KEY,
   Airport_name VARCHAR(50),
   Airport_city VARCHAR(50),
+  Airport_country VARCHAR (50)
   Airport_timezone VARCHAR(50),
   Airport_iso_region VARCHAR(50),
   Airport_is_Intl INT,
