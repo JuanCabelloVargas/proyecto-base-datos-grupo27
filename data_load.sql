@@ -4,7 +4,7 @@
 
 -- Hay que cargar la tabla del csv, lo hacemos al final
 
-INSERT INTO Flight (Id_Flight , Flight_Date, cheduled_departure,  Scheduled_arrival , Actual_departure , Actual_arrival,  Id_departure_airport, Id_arrival_airport, Flight_Status, Flight_Update_TS)
+INSERT INTO Flight (Id_Flight , Flight_Date, cheduled_Departure,  Scheduled_Arrival , Actual_Departure , Actual_Arrival,  Id_Departure_Airport, Id_Arrival_Airport, Flight_Status, Flight_Update_TS)
 SELECT DISTINCT
     flight_no,
     NULL,
@@ -20,7 +20,7 @@ SELECT DISTINCT
 FROM bookings
 WHERE flight_no IS NOT NULL;
 
-INSERT INTO Airport ( Id_airport,Airport_name, Airport_city, Airport_country , Airport_timezone, Airport_continent,Airport_is_Intl,  Airport_iso_coutry, Airport_continent)
+INSERT INTO Airport ( Id_Airport,Airport_Name, Airport_City, Airport_Country , Airport_Timezone, Airport_Continent,Airport_Is_Intl,  Airport_Iso_Coutry, Airport_Continent)
 SELECT DISTINCT 
     arrival_airport_code,
     arrival_airport_name,
@@ -87,7 +87,7 @@ SELECT DISTINCT
 FROM bookings
 WHERE booking_leg_id IS NOT NULL;
 
-INSERT INTO Loyalty_program (Id_program,Program_name,Program_level,Award_points)
+INSERT INTO Loyalty_program (Id_Program,Program_Name,Program_Level,Award_Points)
 SELECT DISTINCT
   frequent_flyer_card_num ,
   program_name,
@@ -97,7 +97,7 @@ SELECT DISTINCT
  FROM bookings 
  where frequent_flyer_card_num IS NOT NULL;
 
- INSERT INTO Frequent_flyer (Id_account,Id_program)
+ INSERT INTO Frequent_flyer (Id_Account,Id_Program)
  SELECT DISTINCT 
   account_login,
   frequent_flyer_card_num
@@ -105,7 +105,7 @@ SELECT DISTINCT
  WHERE account_loging IS NOT NULL
   AND frequent_flyer_card_num IS NOT NULL;
 
- INSERT INTO booking (Booking_ref,Booking_Date,Price,Booking_name,Update_ts,Account_id)
+ INSERT INTO Booking (Booking_Ref,Booking_Date,Price,Booking_Name,Update_Ts,Account_Id)
  SELECT DISTINCT
   booking_ref,
   NULL,
@@ -116,7 +116,7 @@ SELECT DISTINCT
  From bookings
  WHERE booking_ref IS NOT NULL;
 
-INSERT INTO User_account (Account_id,User_name,User_lastname)
+INSERT INTO User_Account (Account_Id,User_Name,User_Lastname)
 SELECT DISTINCT 
 account_login,
 account_first_name, 
