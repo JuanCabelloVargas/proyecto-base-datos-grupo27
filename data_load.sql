@@ -57,7 +57,7 @@ FROM bookings
 WHERE passenger_no IS NOT NULL;
 
 --Tabla Telefono
-INSERT INTO Phone( Id_Telephone, Number, Id_Account)
+INSERT INTO Phone( Id_Telephone, phone_Number, Id_Account)
 SELECT DISTINCT
     account_phone,
     booking_phone,
@@ -105,7 +105,7 @@ SELECT DISTINCT
  WHERE account_loging IS NOT NULL
   AND frequent_flyer_card_num IS NOT NULL;
 
- INSERT INTO booking (booking_ref,date,price,booking_name,update_ts,account_id)
+ INSERT INTO booking (booking_ref,booking_Date,price,booking_name,update_ts,account_id)
  SELECT DISTINCT
   booking_ref,
   NULL,
